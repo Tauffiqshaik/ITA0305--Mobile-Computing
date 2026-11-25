@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FoodieGo – Food Delivery App Prototype</title>
+<style>
+:root{--p:#FF5A3C;--d:#1F2937;--bg:#FFF7F5;--g:#6B7280;--ok:#16A34A;--line:#E5E7EB}
+*{box-sizing:border-box;margin:0;font-family:Inter,system-ui,Arial,sans-serif}
+body{background:#e9ebef;padding:20px;color:var(--d)}
+.bar{text-align:center;margin-bottom:16px}
+.bar button{padding:8px 16px;border:0;border-radius:20px;background:var(--d);color:#fff;cursor:pointer}
+.wrap{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.screen{width:390px;height:844px;background:var(--bg);border-radius:32px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 8px 30px #0003;position:relative}
+.screen.on,body.all .screen{display:flex}
+.pad{padding:24px;display:flex;flex-direction:column;gap:16px;flex:1;overflow:hidden}
+h1{font-size:28px;font-weight:700}h2{font-size:20px;font-weight:600}
+.cap{font-size:12px;color:var(--g)}
+.btn{background:var(--p);color:#fff;border:0;border-radius:12px;padding:14px 24px;font-size:16px;font-weight:600;cursor:pointer;text-align:center}
+.btn:active{background:#D9472B}
+.btn.sm{padding:6px 18px;font-size:14px;background:var(--ok)}
+.input{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:16px;color:var(--g);display:flex;justify-content:space-between}
+.input:focus-within{border-color:var(--p)}
+.input input{border:0;outline:0;font-size:16px;width:100%;background:none}
+.link{color:var(--p);font-size:14px;text-align:center;cursor:pointer}
+.top{display:flex;align-items:center;gap:12px;padding:20px 24px 0}
+.back{width:36px;height:36px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 4px #0002}
+.chips{display:flex;gap:10px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 0;width:66px;text-align:center;font-size:12px}
+.chip b{display:block;font-size:22px;font-weight:400}
+.chip.a{background:var(--p);color:#fff;border-color:var(--p)}
+.card{background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 2px 8px #0001}
+.img{height:110px;display:flex;align-items:center;justify-content:center;font-size:52px}
+.card .t{padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
+.row{display:flex;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:12px}
+.row .th{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:32px}
+.row .m{flex:1;display:flex;flex-direction:column;gap:4px}
+.qty{display:flex;align-items:center;gap:10px}
+.qty span{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.sum{background:#fff;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.sum div{display:flex;justify-content:space-between}
+.sum .tot{font-weight:700;font-size:18px;border-top:1px dashed var(--line);padding-top:10px}
+.nav{display:flex;justify-content:space-around;background:#fff;padding:12px 0 22px;border-top:1px solid var(--line);margin-top:auto}
+.nav div{text-align:center;font-size:11px;color:var(--g);cursor:pointer}.nav div b{display:block;font-size:22px;font-weight:400}
+.nav .a{color:var(--p);font-weight:600}
+.center{align-items:center;text-align:center;justify-content:center}
+.tick{width:96px;height:96px;border-radius:50%;background:var(--ok);color:#fff;font-size:52px;display:flex;align-items:center;justify-content:center}
+.steps{display:flex;justify-content:space-between;width:100%;font-size:12px;color:var(--g)}
+.steps div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.steps i{width:22px;height:22px;border-radius:50%;background:var(--line);display:block}
+.steps .d i{background:var(--ok)}
+</style></head><body>
+<div class="bar"><button onclick="document.body.classList.toggle('all')">Toggle: all screens / clickable prototype</button></div>
+<div class="wrap">
+
+<!-- 1 LOGIN -->
+<div class="screen on" id="s1"><div class="pad" style="justify-content:center">
+ <div style="text-align:center;font-size:64px">🍔</div>
+ <h1 style="text-align:center;color:var(--p)">FoodieGo</h1>
+ <p class="cap" style="text-align:center">Hungry? We deliver in minutes.</p>
+ <div class="input"><input placeholder="Email" type="email"></div>
+ <div class="input"><input placeholder="Password" type="password"><span>👁</span></div>
+ <div class="btn" onclick="go(2)">Login</div>
+ <div class="link">Forgot Password?</div>
+</div></div>
+
+<!-- 2 HOME -->
+<div class="screen" id="s2"><div class="pad">
+ <div><span class="cap">Deliver to</span><h2>📍 Home, Chennai</h2></div>
+ <div class="input">🔍 &nbsp;Search for food or restaurants</div>
+ <div class="chips">
+  <div class="chip a"><b>🍕</b>Pizza</div><div class="chip"><b>🍔</b>Burger</div><div class="chip"><b>🍛</b>Biryani</div><div class="chip"><b>🍰</b>Dessert</div><div class="chip"><b>🥤</b>Drinks</div></div>
+ <h2>Popular Restaurants</h2>
+ <div class="card" onclick="go(3)"><div class="img" style="background:#FFE4DC">🍕</div><div class="t"><div><b>Pizza Palace</b><div class="cap">Italian • Pizza</div></div><div class="cap">⭐ 4.5 • 30 min</div></div></div>
+ <div class="card" onclick="go(3)"><div class="img" style="background:#FEF3C7">🍛</div><div class="t"><div><b>Spice Biryani House</b><div class="cap">Indian • Biryani</div></div><div class="cap">⭐ 4.3 • 35 min</div></div></div>
+</div>
+<div class="nav"><div class="a" onclick="go(2)"><b>🏠</b>Home</div><div><b>🔍</b>Search</div><div onclick="go(4)"><b>🛒</b>Cart</div><div onclick="go(1)"><b>👤</b>Profile</div></div></div>
+
+<!-- 3 MENU -->
+<div class="screen" id="s3">
+ <div class="img" style="background:#FFE4DC;height:150px;font-size:72px;position:relative">🍕<div class="back" style="position:absolute;left:20px;top:20px" onclick="go(2)">←</div></div>
+ <div class="pad" style="padding-top:16px;gap:12px">
+ <div><h2>Pizza Palace</h2><span class="cap">⭐ 4.5 • 30 min • Italian</span></div>
+ <div class="row"><div class="th" style="background:#FFE4DC">🍕</div><div class="m"><b>Margherita Pizza</b><span class="cap">Cheese, basil, tomato</span><b>₹249</b></div><div class="btn sm" onclick="go(4)">Add</div></div>
+ <div class="row"><div class="th" style="background:#FEF3C7">🥖</div><div class="m"><b>Garlic Bread</b><span class="cap">Buttery, toasted</span><b>₹99</b></div><div class="btn sm" onclick="go(4)">Add</div></div>
+ <div class="row"><div class="th" style="background:#DCFCE7">🥗</div><div class="m"><b>Greek Salad</b><span class="cap">Fresh veggies, feta</span><b>₹149</b></div><div class="btn sm" onclick="go(4)">Add</div></div>
+ <div class="row"><div class="th" style="background:#E0F2FE">🥤</div><div class="m"><b>Cold Coffee</b><span class="cap">Iced, creamy</span><b>₹129</b></div><div class="btn sm" onclick="go(4)">Add</div></div>
+ </div></div>
+
+<!-- 4 CART -->
+<div class="screen" id="s4"><div class="top"><div class="back" onclick="go(3)">←</div><h2>My Cart</h2></div>
+ <div class="pad">
+ <div class="row"><div class="th" style="background:#FFE4DC">🍕</div><div class="m"><b>Margherita Pizza</b><b>₹249</b></div><div class="qty"><span>−</span>1<span>+</span></div></div>
+ <div class="row"><div class="th" style="background:#FEF3C7">🥖</div><div class="m"><b>Garlic Bread</b><b>₹198</b></div><div class="qty"><span>−</span>2<span>+</span></div></div>
+ <div class="sum"><div><span>Subtotal</span><span>₹447</span></div><div><span>Delivery fee</span><span>₹40</span></div><div><span>Taxes</span><span>₹61</span></div><div class="tot"><span>Total</span><span>₹548</span></div></div>
+ <div class="btn" style="margin-top:auto" onclick="go(5)">Checkout</div>
+ </div></div>
+
+<!-- 5 CONFIRM -->
+<div class="screen" id="s5"><div class="pad center">
+ <div class="tick">✓</div><h1>Order Placed!</h1>
+ <p class="cap">Thank you for ordering with FoodieGo</p>
+ <div class="sum" style="width:100%;text-align:left"><div><span>Order No.</span><b>#FD2026105</b></div><div><span>Total Amount</span><b>₹548</b></div><div><span>Status</span><b style="color:var(--ok)">Preparing</b></div><div><span>Estimated Delivery</span><b>35 mins</b></div></div>
+ <div class="steps"><div class="d"><i></i>Confirmed</div><div class="d"><i></i>Preparing</div><div><i></i>On the way</div><div><i></i>Delivered</div></div>
+ <div class="btn" style="width:100%;margin-top:12px" onclick="go(2)">Back to Home</div>
+</div></div>
+
+</div>
+<script>function go(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById('s'+n).classList.add('on')}</script>
+</body></html>
