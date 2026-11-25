@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hospital Booking Prototype</title><style>:root{--p:#0EA5A4;--d:#0F172A;--bg:#F0FDFA;--g:#64748B;--line:#D1E7E5;--ok:#16A34A}
+*{box-sizing:border-box;margin:0;font-family:Inter,system-ui,Arial,sans-serif}
+body{background:#e9ebef;padding:20px;color:var(--d)}
+.bar{text-align:center;margin-bottom:16px}.bar button{padding:8px 16px;border:0;border-radius:20px;background:var(--d);color:#fff;cursor:pointer}
+.wrap{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.screen{width:390px;height:844px;background:var(--bg);border-radius:32px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 8px 30px #0003}
+.screen.on,body.all .screen{display:flex}
+.pad{padding:24px;display:flex;flex-direction:column;gap:14px;flex:1;overflow:hidden}
+h1{font-size:28px;font-weight:700}h2{font-size:20px;font-weight:600}.cap{font-size:12px;color:var(--g)}
+.btn{background:var(--p);color:#fff;border:0;border-radius:12px;padding:14px 24px;font-size:16px;font-weight:600;cursor:pointer;text-align:center}
+.btn:active{filter:brightness(.85)}.btn.sm{padding:6px 16px;font-size:14px}
+.input{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:16px;color:var(--g);display:flex;justify-content:space-between;gap:8px}
+.input:focus-within{border-color:var(--p)}.input input{border:0;outline:0;font-size:16px;width:100%;background:none}
+.top{display:flex;align-items:center;gap:12px;padding:20px 24px 0}
+.back{width:36px;height:36px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 4px #0002;flex:none}
+.card{background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 2px 8px #0001}
+.row{display:flex;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:12px;cursor:pointer}
+.th{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:32px;flex:none}
+.m{flex:1;display:flex;flex-direction:column;gap:4px}
+.qty{display:flex;align-items:center;gap:10px}.qty span{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.sum{background:#fff;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:15px}.sum div{display:flex;justify-content:space-between}
+.sum .tot{font-weight:700;font-size:18px;border-top:1px dashed var(--line);padding-top:10px}
+.nav{display:flex;justify-content:space-around;background:#fff;padding:12px 0 22px;border-top:1px solid var(--line);margin-top:auto}
+.nav div{text-align:center;font-size:11px;color:var(--g);cursor:pointer}.nav div b{display:block;font-size:22px;font-weight:400}.nav .a{color:var(--p);font-weight:600}
+.center{align-items:center;text-align:center;justify-content:center}
+.tick{width:96px;height:96px;border-radius:50%;background:var(--ok);color:#fff;font-size:52px;display:flex;align-items:center;justify-content:center}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px 14px;font-size:13px;cursor:pointer}.chip.a{background:var(--p);color:#fff;border-color:var(--p)}
+.ring{border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}.ring i{background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:700}
+.bpb{height:8px;background:var(--line);border-radius:4px;overflow:hidden}.bpb u{display:block;height:100%;background:var(--p)}
+.doc{display:flex;gap:12px;align-items:center;padding:12px}.av{width:64px;height:64px;border-radius:50%;background:#CCFBF1;display:flex;align-items:center;justify-content:center;font-size:34px;flex:none}
+.sl{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;font-size:14px;cursor:pointer}.sl.a{background:var(--p);color:#fff;border-color:var(--p)}
+.dt{width:46px;text-align:center;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:8px 0;font-size:12px;cursor:pointer}.dt b{display:block;font-size:17px}.dt.a{background:var(--p);color:#fff;border-color:var(--p)}
+</style></head><body>
+<div class="bar"><button onclick="document.body.classList.toggle('all')">Toggle: all screens / clickable prototype</button></div><div class="wrap">
+<div class="screen on" id="s1"><div class="pad center"><div class="av" style="width:96px;height:96px;font-size:52px;color:var(--p)">✚</div><h1 style="color:var(--p)">CarePlus Hospital</h1><p class="cap">Book your doctor in minutes</p>
+<div class="input" style="width:100%"><input placeholder="Patient ID / Email"></div><div class="input" style="width:100%"><input type="password" placeholder="Password"><span>👁</span></div><div class="btn" style="width:100%" onclick="go(2)">Login</div><div style="color:var(--p);font-size:14px">New patient? Register</div></div></div>
+<div class="screen" id="s2"><div class="pad"><h2>Find a Doctor</h2><div style="display:flex;gap:8px"><div class="input" style="flex:1">🔍 Search doctors</div><div class="input" style="padding:14px">⚙</div></div>
+<div class="chips"><span class="chip a">Cardiology</span><span class="chip">Neurology</span><span class="chip">Pediatrics</span><span class="chip">Ortho</span></div>
+<div class="card doc" onclick="go(3)"><div class="av">👨‍⚕️</div><div class="m"><b>Dr. Rajesh Kumar</b><span class="cap">Cardiologist</span><span class="cap">⭐ 4.8 • ₹600</span></div></div>
+<div class="card doc" onclick="go(3)"><div class="av">👩‍⚕️</div><div class="m"><b>Dr. Meena Iyer</b><span class="cap">Neurologist</span><span class="cap">⭐ 4.7 • ₹700</span></div></div>
+<div class="card doc" onclick="go(3)"><div class="av">👩‍⚕️</div><div class="m"><b>Dr. Priya Nair</b><span class="cap">Pediatrician</span><span class="cap">⭐ 4.9 • ₹500</span></div></div></div><div class="nav" data-a="0"></div></div>
+<div class="screen" id="s3"><div style="height:220px;background:#CCFBF1;display:flex;align-items:center;justify-content:center;font-size:110px;position:relative">👨‍⚕️<div class="back" style="position:absolute;left:20px;top:20px" onclick="go(2)">←</div></div>
+<div class="pad"><div><h2>Dr. Rajesh Kumar</h2><span class="cap">Cardiologist • MBBS, MD</span></div><div class="sum"><div><span>Experience</span><b>12 years</b></div><div><span>Consultation Fee</span><b>₹600</b></div></div>
+<b>Available Time Slots</b><div class="chips"><span class="sl">10:00 AM</span><span class="sl">11:30 AM</span><span class="sl">02:00 PM</span><span class="sl">04:30 PM</span></div><div class="btn" style="margin-top:auto" onclick="go(4)">Book Appointment</div></div></div>
+<div class="screen" id="s4"><div class="top"><div class="back" onclick="go(3)">←</div><h2>Book Appointment</h2></div><div class="pad">
+<div class="card doc" style="cursor:default"><div class="av">👨‍⚕️</div><div class="m"><b>Dr. Rajesh Kumar</b><span class="cap">Cardiologist • ₹600</span></div></div>
+<b>Select Date</b><div style="display:flex;gap:6px" id="dates"></div><b>Select Time</b><div class="chips" id="slots"></div>
+<div class="btn" style="margin-top:auto" onclick="go(5)">Confirm Booking</div></div></div>
+<div class="screen" id="s5"><div class="pad center"><div class="tick">✓</div><h1>Appointment Booked</h1><p class="cap">A confirmation has been sent to your email</p>
+<div class="sum" style="width:100%;text-align:left"><div><span>Patient</span><b>Aarav Kumar</b></div><div><span>Doctor</span><b>Dr. Rajesh Kumar</b></div><div><span>Date</span><b>08 Oct 2026</b></div><div><span>Time</span><b>11:30 AM</b></div><div class="tot"><span>Appointment ID</span><span>APT-20261008-01</span></div></div><div class="btn" style="width:100%" onclick="go(2)">Back to Doctors</div></div></div>
+</div><script>function go(n){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("on"));document.getElementById("s"+n).classList.add("on")}const T=[["🏠","Home",2],["📅","Visits",4],["👤","Profile",1]];document.querySelectorAll(".nav").forEach(n=>n.innerHTML=T.map((t,i)=>`<div class="${i==n.dataset.a?"a":""}" onclick="go(${t[2]})"><b>${t[0]}</b>${t[1]}</div>`).join(""));
+const dn=["Wed","Thu","Fri","Sat","Sun","Mon","Tue"];document.getElementById("dates").innerHTML=dn.map((d,i)=>`<div class="dt ${i==1?"a":""}">${d}<b>${7+i}</b></div>`).join("");
+document.getElementById("slots").innerHTML=["10:00 AM","11:30 AM","02:00 PM","04:30 PM"].map((s,i)=>`<span class="sl ${i==1?"a":""}">${s}</span>`).join("");
+document.querySelectorAll("#dates .dt").forEach(b=>b.onclick=()=>{document.querySelectorAll("#dates .dt").forEach(x=>x.classList.remove("a"));b.classList.add("a")});
+document.querySelectorAll("#slots .sl").forEach(b=>b.onclick=()=>{document.querySelectorAll("#slots .sl").forEach(x=>x.classList.remove("a"));b.classList.add("a")});</script></body></html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Clothing App Prototype</title><style>:root{--p:#111827;--d:#111827;--bg:#FFFFFF;--g:#6B7280;--line:#E5E7EB;--ok:#16A34A;--ac:#E11D48}
+*{box-sizing:border-box;margin:0;font-family:Inter,system-ui,Arial,sans-serif}
+body{background:#e9ebef;padding:20px;color:var(--d)}
+.bar{text-align:center;margin-bottom:16px}.bar button{padding:8px 16px;border:0;border-radius:20px;background:var(--d);color:#fff;cursor:pointer}
+.wrap{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.screen{width:390px;height:844px;background:var(--bg);border-radius:32px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 8px 30px #0003}
+.screen.on,body.all .screen{display:flex}
+.pad{padding:24px;display:flex;flex-direction:column;gap:14px;flex:1;overflow:hidden}
+h1{font-size:28px;font-weight:700}h2{font-size:20px;font-weight:600}.cap{font-size:12px;color:var(--g)}
+.btn{background:var(--p);color:#fff;border:0;border-radius:12px;padding:14px 24px;font-size:16px;font-weight:600;cursor:pointer;text-align:center}
+.btn:active{filter:brightness(.85)}.btn.sm{padding:6px 16px;font-size:14px}
+.input{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:16px;color:var(--g);display:flex;justify-content:space-between;gap:8px}
+.input:focus-within{border-color:var(--p)}.input input{border:0;outline:0;font-size:16px;width:100%;background:none}
+.top{display:flex;align-items:center;gap:12px;padding:20px 24px 0}
+.back{width:36px;height:36px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 4px #0002;flex:none}
+.card{background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 2px 8px #0001}
+.row{display:flex;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:12px;cursor:pointer}
+.th{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:32px;flex:none}
+.m{flex:1;display:flex;flex-direction:column;gap:4px}
+.qty{display:flex;align-items:center;gap:10px}.qty span{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.sum{background:#fff;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px;font-size:15px}.sum div{display:flex;justify-content:space-between}
+.sum .tot{font-weight:700;font-size:18px;border-top:1px dashed var(--line);padding-top:10px}
+.nav{display:flex;justify-content:space-around;background:#fff;padding:12px 0 22px;border-top:1px solid var(--line);margin-top:auto}
+.nav div{text-align:center;font-size:11px;color:var(--g);cursor:pointer}.nav div b{display:block;font-size:22px;font-weight:400}.nav .a{color:var(--p);font-weight:600}
+.center{align-items:center;text-align:center;justify-content:center}
+.tick{width:96px;height:96px;border-radius:50%;background:var(--ok);color:#fff;font-size:52px;display:flex;align-items:center;justify-content:center}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px 14px;font-size:13px;cursor:pointer}.chip.a{background:var(--p);color:#fff;border-color:var(--p)}
+.ring{border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}.ring i{background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:700}
+.bpb{height:8px;background:var(--line);border-radius:4px;overflow:hidden}.bpb u{display:block;height:100%;background:var(--p)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.pc .im{height:120px;display:flex;align-items:center;justify-content:center;font-size:56px}.pc .t{padding:10px;font-size:13px;display:flex;flex-direction:column;gap:2px}
+.ban{background:linear-gradient(135deg,#E11D48,#F97316);color:#fff;border-radius:16px;padding:20px}.ban h2{font-size:24px}
+.sz{width:62px;height:48px;border-radius:12px;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:600;cursor:pointer}
+.sz.sel{background:var(--p);color:#fff;border-color:var(--p)}.sz.dis{background:#F3F4F6;color:#bbb;text-decoration:line-through;cursor:not-allowed}
+.rad{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);border-radius:12px;padding:12px}.rad.sel{border-color:var(--p);background:#F9FAFB}.rad:before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid var(--g)}.rad.sel:before{background:var(--p);border-color:var(--p)}
+</style></head><body>
+<div class="bar"><button onclick="document.body.classList.toggle('all')">Toggle: all screens / clickable prototype</button></div><div class="wrap">
+<div class="screen on" id="s1"><div class="pad"><h2>👕 StyleHub</h2><div class="input">🔍 Search clothing</div><div class="chips"><span class="chip a">Men</span><span class="chip">Women</span><span class="chip">Kids</span><span class="chip">Sale</span></div>
+<div class="ban"><span class="cap" style="color:#fff">NEW SEASON</span><h2>Flat 40% OFF</h2><p style="font-size:13px">On all festive wear</p></div><h2>Featured</h2>
+<div class="grid"><div class="card pc" onclick="go(2)"><div class="im" style="background:#FDE2E4">👗</div><div class="t"><b>Floral Dress</b><span>₹1,899</span></div></div><div class="card pc" onclick="go(2)"><div class="im" style="background:#DBEAFE">👕</div><div class="t"><b>Cotton T-Shirt</b><span>₹799</span></div></div></div></div><div class="nav" data-a="0"></div></div>
+<div class="screen" id="s2"><div class="top"><div class="back" onclick="go(1)">←</div><h2 style="flex:1">Men's Wear</h2><div class="chip">⚙ Filter</div></div><div class="pad"><div class="grid">
+<div class="card pc" onclick="go(3)"><div class="im" style="background:#DBEAFE">👕</div><div class="t"><b>Cotton T-Shirt</b><span>₹799 • ⭐ 4.4</span></div></div>
+<div class="card pc" onclick="go(3)"><div class="im" style="background:#FEF3C7">🧥</div><div class="t"><b>Denim Jacket</b><span>₹2,499 • ⭐ 4.6</span></div></div>
+<div class="card pc" onclick="go(3)"><div class="im" style="background:#E0E7FF">👖</div><div class="t"><b>Slim Jeans</b><span>₹1,499 • ⭐ 4.3</span></div></div>
+<div class="card pc" onclick="go(3)"><div class="im" style="background:#DCFCE7">👔</div><div class="t"><b>Formal Shirt</b><span>₹1,199 • ⭐ 4.5</span></div></div></div></div><div class="nav" data-a="1"></div></div>
+<div class="screen" id="s3"><div style="height:280px;background:#FEF3C7;display:flex;align-items:center;justify-content:center;font-size:130px;position:relative">🧥<div class="back" style="position:absolute;left:20px;top:20px" onclick="go(2)">←</div></div>
+<div class="pad" style="gap:10px"><div style="display:flex;justify-content:space-between"><h2>Denim Jacket</h2><h2 style="color:var(--ac)">₹2,499</h2></div><p class="cap" style="font-size:13px">Classic mid-wash denim jacket with button closure and two chest pockets. 100% cotton.</p>
+<b>Select Size</b><div style="display:flex;gap:10px"><div class="sz">S</div><div class="sz sel">M</div><div class="sz">L</div><div class="sz dis">XL</div></div><div class="btn" style="margin-top:auto" onclick="go(4)">Add to Cart</div></div></div>
+<div class="screen" id="s4"><div class="top"><div class="back" onclick="go(3)">←</div><h2>Shopping Cart</h2></div><div class="pad">
+<div class="row" style="border:1px solid var(--line)"><div class="th" style="background:#FEF3C7">🧥</div><div class="m"><b>Denim Jacket</b><span class="cap">Size M</span><b>₹2,499</b></div><div class="qty"><span>−</span>1<span>+</span></div></div>
+<div class="row" style="border:1px solid var(--line)"><div class="th" style="background:#DBEAFE">👕</div><div class="m"><b>Cotton T-Shirt</b><span class="cap">Size L</span><b>₹1,598</b></div><div class="qty"><span>−</span>2<span>+</span></div></div>
+<div class="sum" style="background:#F9FAFB"><div><span>Subtotal</span><span>₹4,097</span></div><div><span>Shipping</span><span>Free</span></div><div class="tot"><span>Total</span><span>₹4,097</span></div></div><div class="btn" style="margin-top:auto" onclick="go(5)">Proceed to Checkout</div></div></div>
+<div class="screen" id="s5"><div class="top"><div class="back" onclick="go(4)">←</div><h2>Checkout</h2></div><div class="pad"><b>Delivery Address</b><div class="sum" style="background:#F9FAFB"><b>Aarav Kumar</b><span class="cap">12, Anna Nagar, Chennai – 600040</span></div>
+<b>Payment Method</b><div class="rad sel">UPI</div><div class="rad">Credit / Debit Card</div><div class="rad">Cash on Delivery</div>
+<div class="sum" style="background:#F9FAFB"><div class="tot" style="border:0;padding:0"><span>Total Amount</span><span>₹4,097</span></div></div><div class="btn" style="margin-top:auto" onclick="go(1)">Place Order</div></div></div>
+</div><script>function go(n){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("on"));document.getElementById("s"+n).classList.add("on")}const T=[["🏠","Home",1],["🗂","Shop",2],["🛒","Cart",4],["👤","Profile",5]];document.querySelectorAll(".nav").forEach(n=>n.innerHTML=T.map((t,i)=>`<div class="${i==n.dataset.a?"a":""}" onclick="go(${t[2]})"><b>${t[0]}</b>${t[1]}</div>`).join(""));
+document.querySelectorAll("#s3 .sz:not(.dis)").forEach(b=>b.onclick=()=>{document.querySelectorAll("#s3 .sz:not(.dis)").forEach(x=>x.classList.remove("sel"));b.classList.add("sel")});</script></body></html>

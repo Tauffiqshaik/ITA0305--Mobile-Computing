@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TechNova 2026 – Event Website</title>
+<style>
+:root{--p:#7C3AED;--d:#111827;--ac:#06B6D4;--bg:#FAF5FF;--g:#6B7280;--line:#E5E7EB;--ok:#16A34A}
+*{box-sizing:border-box;margin:0;font-family:Inter,system-ui,Arial,sans-serif}body{background:var(--bg);color:var(--d)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 80px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0}
+.logo{font-weight:800;font-size:22px;color:var(--p);cursor:pointer}nav .l{display:flex;gap:32px;align-items:center}nav .l a{cursor:pointer;font-weight:500}.hb{display:none;font-size:26px}
+.btn{background:var(--p);color:#fff;border:0;border-radius:12px;padding:14px 28px;font-size:16px;font-weight:600;cursor:pointer;display:inline-block}.btn.o{background:#fff;color:var(--p);border:2px solid var(--p)}
+.pg{display:none}.pg.on{display:block}.sec{max-width:1280px;margin:0 auto;padding:56px 80px}
+.hero{background:linear-gradient(135deg,#4C1D95,#7C3AED 60%,#06B6D4);color:#fff;padding:120px 80px;text-align:center}.hero h1{font-size:64px;margin:12px 0}.hero p{font-size:20px;margin:6px 0}.hero .btn{margin-top:28px;background:#fff;color:var(--p)}
+h2{font-size:32px;margin-bottom:24px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.ec{background:#fff;border-radius:16px;padding:24px;box-shadow:0 2px 10px #0001;display:flex;flex-direction:column;gap:10px}.ec .ic{font-size:36px}.ec p{color:var(--g);font-size:15px}.tag{color:var(--p);font-weight:600;font-size:14px}
+.box{background:#fff;border-radius:16px;padding:28px;margin-bottom:20px;box-shadow:0 2px 10px #0001}.box li{margin:8px 0 8px 20px;color:#374151}
+table{width:100%;border-collapse:collapse}td,th{padding:12px;border-bottom:1px solid var(--line);text-align:left}
+form{max-width:560px;background:#fff;border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:16px;box-shadow:0 2px 10px #0001}
+label{font-size:14px;font-weight:600;display:flex;flex-direction:column;gap:6px}input,select{padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-size:16px}
+.ok{text-align:center;padding:100px 24px}.tick{width:96px;height:96px;border-radius:50%;background:var(--ok);color:#fff;font-size:52px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.ok .box{max-width:460px;margin:28px auto;text-align:left}.ok .box div{display:flex;justify-content:space-between;padding:8px 0}
+@media(max-width:800px){nav{padding:14px 20px}nav .l{display:none}.hb{display:block}.sec{padding:32px 20px}.hero{padding:70px 20px}.hero h1{font-size:38px}.hero p{font-size:16px}h2{font-size:24px}form{padding:20px}.ok{padding:60px 20px}}
+</style></head><body>
+<nav><div class="logo" onclick="go(1)">⚡ TechNova</div><div class="l"><a onclick="go(1)">Home</a><a onclick="go(2)">Events</a><a onclick="go(4)">Register</a><span class="btn" style="padding:10px 22px" onclick="go(4)">Register Now</span></div><div class="hb">☰</div></nav>
+
+<div class="pg on" id="p1"><div class="hero"><p>National Level Technical Symposium</p><h1>TechNova 2026</h1><p>📅 24 – 25 October 2026 &nbsp;|&nbsp; 📍 Main Auditorium, Chennai</p><span class="btn" onclick="go(4)">Register Now</span></div>
+<div class="sec"><h2>Why attend?</h2><div class="grid"><div class="ec"><span class="ic">🏆</span><b>₹1,00,000 in prizes</b><p>Compete across 4 technical events.</p></div><div class="ec"><span class="ic">🎤</span><b>Industry speakers</b><p>Talks from leading engineers.</p></div><div class="ec"><span class="ic">🤝</span><b>Networking</b><p>Meet students from 50+ colleges.</p></div></div></div></div>
+
+<div class="pg" id="p2"><div class="sec"><h2>Technical Events</h2><div class="grid">
+<div class="ec"><span class="ic">💻</span><b>Hackathon</b><p>24-hour team coding challenge to solve real problems.</p><span class="tag">24 Oct • 9:00 AM</span><span class="btn sm" onclick="go(3)">Register</span></div>
+<div class="ec"><span class="ic">📊</span><b>Paper Presentation</b><p>Present your research to a panel of experts.</p><span class="tag">24 Oct • 10:30 AM</span><span class="btn sm" onclick="go(3)">Register</span></div>
+<div class="ec"><span class="ic">🎨</span><b>Web Design Contest</b><p>Design and build a responsive site in 2 hours.</p><span class="tag">25 Oct • 10:00 AM</span><span class="btn sm" onclick="go(3)">Register</span></div>
+<div class="ec"><span class="ic">🧠</span><b>Tech Quiz</b><p>Test your knowledge of technology and computing.</p><span class="tag">25 Oct • 2:00 PM</span><span class="btn sm" onclick="go(3)">Register</span></div></div></div></div>
+
+<div class="pg" id="p3"><div class="sec"><span class="tag" style="cursor:pointer" onclick="go(2)">← Back to events</span><h2 style="margin-top:12px">💻 Hackathon</h2>
+<div class="box"><b>About</b><p style="margin-top:8px;color:#374151">Teams build a working prototype in 24 hours around a theme revealed on the day.</p></div>
+<div class="box"><b>Rules</b><ul><li>Team of 2–4 members</li><li>Bring your own laptop</li><li>Use of open-source libraries allowed</li></ul></div>
+<div class="box"><b>Eligibility</b><ul><li>Open to all UG and PG students</li><li>Valid college ID required</li></ul></div>
+<div class="box"><b>Schedule</b><table><tr><td>9:00 AM</td><td>Inauguration &amp; theme reveal</td></tr><tr><td>10:00 AM</td><td>Hacking begins</td></tr><tr><td>Next day 10:00 AM</td><td>Final presentations</td></tr></table></div>
+<span class="btn" onclick="go(4)">Register for this event</span></div></div>
+
+<div class="pg" id="p4"><div class="sec"><h2>Event Registration</h2><form onsubmit="return false"><label>Student Name<input placeholder="Full name"></label><label>Email<input type="email" placeholder="you@college.edu"></label>
+<label>Department<select><option>Computer Science</option><option>Information Technology</option><option>Electronics</option><option>Mechanical</option></select></label>
+<label>Year<select><option>I Year</option><option>II Year</option><option selected>III Year</option><option>IV Year</option></select></label>
+<label>Selected Event<select><option>Hackathon</option><option>Paper Presentation</option><option>Web Design Contest</option><option>Tech Quiz</option></select></label><span class="btn" style="text-align:center" onclick="go(5)">Submit</span></form></div></div>
+
+<div class="pg" id="p5"><div class="ok"><div class="tick">✓</div><h2>Registration Successful!</h2><p style="color:var(--g)">Thank you for registering. A confirmation email has been sent.</p>
+<div class="box"><div><span>Registration ID</span><b>TN26-0142</b></div><div><span>Event</span><b>Hackathon</b></div><div><span>Date</span><b>24 Oct 2026</b></div></div><span class="btn" onclick="go(1)">Back to Home</span></div></div>
+<script>function go(n){document.querySelectorAll(".pg").forEach(s=>s.classList.remove("on"));document.getElementById("p"+n).classList.add("on");scrollTo(0,0)}</script></body></html>
